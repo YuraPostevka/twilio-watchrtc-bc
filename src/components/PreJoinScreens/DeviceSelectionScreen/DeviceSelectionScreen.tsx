@@ -157,42 +157,42 @@ export default function DeviceSelectionScreen({ name, roomName, setStep }: Devic
     }
   };
 
-  const progressCallback = (progress: number) => {
-    console.log(`SAMPLE:runNetworkTest progressCallback ${progress}%`, {});
-  };
+  // const progressCallback = (progress: number) => {
+  //   console.log(`SAMPLE:runNetworkTest progressCallback ${progress}%`, {});
+  // };
 
-  function getJsonFromUrl(query: string) {
-    if (query.indexOf('?') === 0) {
-      query = query.substr(1);
-    }
+  // function getJsonFromUrl(query: string) {
+  //   if (query.indexOf('?') === 0) {
+  //     query = query.substr(1);
+  //   }
 
-    const result: Record<string, string | string[]> = {};
-    query.split('&').forEach(function(part) {
-      if (!part) return;
-      part = part.split('+').join(' ');
-      const eq = part.indexOf('=');
-      let key = eq > -1 ? part.substr(0, eq) : part;
-      const val = eq > -1 ? decodeURIComponent(part.substr(eq + 1)) : '';
-      const from = key.indexOf('[');
-      if (from === -1) {
-        result[decodeURIComponent(key)] = val;
-      } else {
-        const to = key.indexOf(']', from);
-        const index = decodeURIComponent(key.substring(from + 1, to));
-        key = decodeURIComponent(key.substring(0, from));
-        if (!result[key]) {
-          result[key] = [];
-        }
-        if (!index) {
-          (result[key] as string[]).push(val);
-        } else {
-          // @ts-ignore
-          result[key][index] = val;
-        }
-      }
-    });
-    return result;
-  }
+  //   const result: Record<string, string | string[]> = {};
+  //   query.split('&').forEach(function(part) {
+  //     if (!part) return;
+  //     part = part.split('+').join(' ');
+  //     const eq = part.indexOf('=');
+  //     let key = eq > -1 ? part.substr(0, eq) : part;
+  //     const val = eq > -1 ? decodeURIComponent(part.substr(eq + 1)) : '';
+  //     const from = key.indexOf('[');
+  //     if (from === -1) {
+  //       result[decodeURIComponent(key)] = val;
+  //     } else {
+  //       const to = key.indexOf(']', from);
+  //       const index = decodeURIComponent(key.substring(from + 1, to));
+  //       key = decodeURIComponent(key.substring(0, from));
+  //       if (!result[key]) {
+  //         result[key] = [];
+  //       }
+  //       if (!index) {
+  //         (result[key] as string[]).push(val);
+  //       } else {
+  //         // @ts-ignore
+  //         result[key][index] = val;
+  //       }
+  //     }
+  //   });
+  //   return result;
+  // }
 
   // const runNetworkTest = async () => {
   //   try {
