@@ -14,7 +14,7 @@ export default function useStatsListener() {
       watchRTC.addStatsListener(statsListener);
       setIsStatsEnabled(true);
     } else {
-      watchRTC.addStatsListener(null);
+      watchRTC.addStatsListener(() => {});
       setIsStatsEnabled(false);
     }
   }, [isStatsEnabled]);
